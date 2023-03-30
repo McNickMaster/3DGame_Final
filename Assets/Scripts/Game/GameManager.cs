@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
      public static GameManager instance;
         
     public GameObject playerPrefab;
-    private GameObject playerInstance;
+    public GameObject playerInstance;
     private int currentLevelIndex = 0;
 
     [SerializeField]
@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
                 case GameState.Ready:
                 {
                     gameState = GameState.Starting;
+                    StopUIMode();
                     break;
                 }
 
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
                     gameState = GameState.Running;
                     
                     
-                    playerInstance = Instantiate(playerPrefab, currentLevel.spawnpoint.position, Quaternion.identity);
+                    //playerInstance = Instantiate(playerPrefab, currentLevel.spawnpoint.position, Quaternion.identity);
 
                     
                     break;

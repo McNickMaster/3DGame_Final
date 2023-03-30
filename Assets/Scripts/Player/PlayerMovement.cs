@@ -204,8 +204,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (grounded)
         {
-            target_camera_tilt = camera_tilt_amount * -Input.GetAxisRaw("Horizontal");
-            desiredZ = Mathf.Lerp(desiredZ,target_camera_tilt,0.1f);
+            //target_camera_tilt = camera_tilt_amount * -Input.GetAxisRaw("Horizontal");
+            //desiredZ = Mathf.Lerp(desiredZ,target_camera_tilt,0.1f);
         }
         
         //Rotate, and also make sure we dont over- or under-rotate.
