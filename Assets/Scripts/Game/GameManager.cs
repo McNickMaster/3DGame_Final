@@ -1,14 +1,16 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
 
-     public static GameManager instance;
+    public static GameManager instance;
         
     public GameObject playerPrefab;
-    public GameObject playerInstance;
+    public GameObject playerObjInstance;
+    public PlayerMovement playerInstance;
     private int currentLevelIndex = 0;
 
     [SerializeField]
@@ -16,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     public Level currentLevel;
 
+
+    public List<Upgrade> currentUpgrades = new List<Upgrade>();
 
     private void Awake()
         {
@@ -42,7 +46,7 @@ public class GameManager : MonoBehaviour
                     gameState = GameState.Running;
                     
                     
-                    //playerInstance = Instantiate(playerPrefab, currentLevel.spawnpoint.position, Quaternion.identity);
+                    //playerObjInstance = Instantiate(playerPrefab, currentLevel.spawnpoint.position, Quaternion.identity);
 
                     
                     break;

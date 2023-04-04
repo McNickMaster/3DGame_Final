@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     
     //Movement
     public float moveSpeed = 6000;
-    [HideInInspector] 
     public float movementSpeedMod = 1;
     public float maxSpeed = 30;
     public bool grounded;
@@ -44,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     private bool readyToJump = true;
     private float jumpCooldown = 0.25f;
     public float jumpForce = 600f;
+    public float gravity = 2000f;
     public float gravityFallMod = 250f;
     
     //Input
@@ -113,11 +113,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Movement() {
         //Extra gravity
-        rb.AddForce(Vector3.down * Time.deltaTime * 3000);
+        rb.AddForce(Vector3.down * Time.deltaTime * gravity);
 
         if(!grounded)
         {
-            rb.AddForce(Vector3.down * Time.deltaTime * 3000);
+            rb.AddForce(Vector3.down * Time.deltaTime * gravity);
         }
         if(rb.velocity.y < 0)
         {
