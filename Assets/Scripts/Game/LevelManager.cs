@@ -59,22 +59,22 @@ public class LevelManager : MonoBehaviour
             }
             while(!ListContains(nextRoom.AttachPoints, roomBranchDir));
 
-            Debug.Log("found room");
+            
 
             Vector3 roomSpawnOffset = Vector3.zero;
 
             if(roomBranchDir.Equals("U"))
             {
                 roomSpawnOffset += Vector3.forward * room_size;
-            }
+            } else
             if(roomBranchDir.Equals("D"))
             {
                 roomSpawnOffset += Vector3.back * room_size;
-            }
+            } else
             if(roomBranchDir.Equals("L"))
             {
                 roomSpawnOffset += Vector3.left * room_size;
-            }
+            } else
             if(roomBranchDir.Equals("R"))
             {
                 roomSpawnOffset += Vector3.right * room_size;
