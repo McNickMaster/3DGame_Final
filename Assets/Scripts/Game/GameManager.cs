@@ -54,6 +54,16 @@ public class GameManager : MonoBehaviour
                 case GameState.Running:
                 {
 
+                    if(Input.GetKeyDown(KeyCode.Escape))
+                    {
+                        QuitGame();
+                    }
+
+                    if(Input.GetKeyDown(KeyCode.R))
+                    {
+                        RestartGame();
+                    }
+
                     
 
                     break;
@@ -108,6 +118,16 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             //PlayerWeapon.instance.can_activate = true;
+        }
+
+        public void RestartGame()
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        public void QuitGame()
+        {
+            Application.Quit();
         }
     }
 
