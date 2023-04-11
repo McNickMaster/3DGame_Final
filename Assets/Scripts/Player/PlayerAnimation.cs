@@ -7,6 +7,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public GameObject playerModel;
     public Transform orientation;
+    public Animator animator;
 
     public float bob_length = 1;
     public float bob_intensity = 0.1f;
@@ -31,6 +32,14 @@ public class PlayerAnimation : MonoBehaviour
         Sway();
 
         playerModel.transform.localScale = bob_scale * init_scale;
+
+
+        if((PlayerMovement.instance.GetComponent<Rigidbody>().velocity.magnitude)> 0.1f)
+        {
+            animator.SetBool("walking", true);
+        } else {
+            animator.SetBool("walking", false);
+        }
     }
 
 

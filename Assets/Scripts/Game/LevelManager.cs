@@ -114,6 +114,8 @@ public class LevelManager : MonoBehaviour
         {
             switched_s = "R";
         }
+
+        
         foreach (GameObject obj in list)
         {
             if (obj.name.ToLower().Contains(switched_s.ToLower()))
