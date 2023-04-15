@@ -2250,6 +2250,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1895117005827442050, guid: 260c664b0a205974983a0df533525fbb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.57
+      objectReference: {fileID: 0}
     - target: {fileID: 2955322386284852789, guid: 260c664b0a205974983a0df533525fbb, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2297,6 +2301,14 @@ PrefabInstance:
     - target: {fileID: 2955322386284852791, guid: 260c664b0a205974983a0df533525fbb, type: 3}
       propertyPath: m_Name
       value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409180366928117451, guid: 260c664b0a205974983a0df533525fbb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -16.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101930367712326930, guid: 260c664b0a205974983a0df533525fbb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 260c664b0a205974983a0df533525fbb, type: 3}
@@ -2554,6 +2566,7 @@ MonoBehaviour:
   - {fileID: 151672401892004588, guid: 91a93de6a9c57f946aefe0b47652a451, type: 3}
   - {fileID: 151672401892004588, guid: b8ff54350765c7142b5631ce8c4c7b90, type: 3}
   stemLevel: {fileID: 2955322386284852788, guid: 260c664b0a205974983a0df533525fbb, type: 3}
+  endCap: {fileID: 2955322386284852788, guid: 274b3aa207d375c419cdd1d41b447f5e, type: 3}
   room_amount: 5
   room_size: 15
 --- !u!114 &1874647559

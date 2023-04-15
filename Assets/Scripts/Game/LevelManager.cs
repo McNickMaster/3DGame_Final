@@ -7,8 +7,10 @@ public class LevelManager : MonoBehaviour
 
     public List<Level> possibleLevels;
     public Level stemLevel;
+    public Level endCap;
 
-    private Level currentLevelBranch;
+    public Level currentLevelBranch;
+    public Level lastLevelBranch;
 
     public int room_amount = 5;
     public float room_size = 15;
@@ -40,7 +42,8 @@ public class LevelManager : MonoBehaviour
 
         for(int i = 0; i < room_amount; i++)
         {
-        
+            
+
             roomSpawn = currentLevelBranch.AttachPoints[Random.Range(0, currentLevelBranch.AttachPoints.Length)].transform;
 
             string roomBranchDir = roomSpawn.gameObject.name;
@@ -86,10 +89,77 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("something collided");
             } else
             {
+                lastLevelBranch = currentLevelBranch;
                 currentLevelBranch = Instantiate(nextRoom, roomSpawnOffset + roomSpawn.gameObject.transform.position, Quaternion.identity).GetComponent<Level>();
             }
+
+            //SpawnEndcaps(lastLevelBranch);
+
+            
             
 
+        }
+    }
+
+    void SpawnEndcaps(Level level)
+    {
+        Vector3 endcapPos = Vector3.zero;
+        float endcapAngle = 0;
+        
+        for(int i = 0; i < level.AttachPoints.Length; i++)
+        {
+            switch(level.AttachPoints[i].name)
+            {
+                case ("U"):
+                {
+                    endcapPos = level.gameObject.transform.position + Vector3.forward * room_size;
+                    endcapAngle = 0;
+                    SpawnEndcap(endcapPos, endcapAngle);
+                    break;
+                }
+                case ("D"):
+                {
+                    endcapPos = level.gameObject.transform.position + Vector3.back * room_size;
+                    endcapAngle = 180;
+                    SpawnEndcap(endcapPos, endcapAngle);
+                    break;
+                }
+                case ("L"):
+                {
+                    endcapPos = level.gameObject.transform.position + Vector3.left * room_size;
+                    endcapAngle = -90;
+                    SpawnEndcap(endcapPos, endcapAngle);
+                    break;
+                }
+                case ("R"):
+                {
+                    endcapPos = level.gameObject.transform.position + Vector3.right * room_size;
+                    endcapAngle = 90;
+                    
+                    SpawnEndcap(endcapPos, endcapAngle);
+                    break;
+                }
+                
+            }
+        }
+
+        if((endcapPos == Vector3.zero) && (Physics.BoxCast(endcapPos + Vector3.up * 10, Vector3.one, Vector3.down)))
+        {
+
+        } else 
+        {
+            
+        }
+        
+
+
+    }
+
+    void SpawnEndcap(Vector3 pos, float endcapAngle)
+    {
+        if(!(Physics.BoxCast(pos + Vector3.down * 5, Vector3.one, Vector3.up)))
+        {
+            Instantiate(endCap, pos, Quaternion.AngleAxis(endcapAngle, Vector3.up));
         }
     }
 
