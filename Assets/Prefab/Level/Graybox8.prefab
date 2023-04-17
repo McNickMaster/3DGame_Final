@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 151672401405664018}
   m_Layer: 0
   m_Name: U
-  m_TagString: Untagged
+  m_TagString: AttachPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 4544498192824098753}
   m_Layer: 0
   m_Name: R
-  m_TagString: Untagged
+  m_TagString: AttachPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

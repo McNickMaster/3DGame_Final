@@ -56,11 +56,15 @@ public class LevelManager : MonoBehaviour
 
             lastDir = roomBranchDir;
 
+            int c = 0;
             do
             {
                 nextRoom = possibleLevels[Random.Range(0, possibleLevels.Count)];
+                c++;
+
+                
             }
-            while(!ListContains(nextRoom.AttachPoints, roomBranchDir));
+            while((!ListContains(nextRoom.AttachPoints, roomBranchDir)) && c < 100);
 
             
 
@@ -89,16 +93,20 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("something collided");
             } else
             {
+                
                 lastLevelBranch = currentLevelBranch;
                 currentLevelBranch = Instantiate(nextRoom, roomSpawnOffset + roomSpawn.gameObject.transform.position, Quaternion.identity).GetComponent<Level>();
+                Destroy(roomSpawn.gameObject);
             }
 
-            SpawnEndcaps(lastLevelBranch);
+            //SpawnEndcaps(lastLevelBranch);
 
             
             
 
         }
+
+        SpawnEndcapsOnEmptyPoints(GetEmptyAttachPoints());
     }
 
     void SpawnEndcaps(Level level)
@@ -113,28 +121,78 @@ public class LevelManager : MonoBehaviour
             {
                 case ("U"):
                 {
-                    endcapPos = level.gameObject.transform.position + Vector3.forward * room_size * 1.5f;
+                    endcapPos = level.gameObject.transform.position + Vector3.forward * room_size * 2;
                     endcapAngle = 0;
                     SpawnEndcap(endcapPos, endcapAngle);
                     break;
                 }
                 case ("D"):
                 {
-                    endcapPos = level.gameObject.transform.position + Vector3.back * room_size * 1.5f;
+                    endcapPos = level.gameObject.transform.position + Vector3.back * room_size * 2;
                     endcapAngle = 180;
                     SpawnEndcap(endcapPos, endcapAngle);
                     break;
                 }
                 case ("L"):
                 {
-                    endcapPos = level.gameObject.transform.position + Vector3.left * room_size * 1.5f;
+                    endcapPos = level.gameObject.transform.position + Vector3.left * room_size *2 ;
                     endcapAngle = -90;
                     SpawnEndcap(endcapPos, endcapAngle);
                     break;
                 }
                 case ("R"):
                 {
-                    endcapPos = level.gameObject.transform.position + Vector3.right * room_size * 1.5f;
+                    endcapPos = level.gameObject.transform.position + Vector3.right * room_size * 2;
+                    endcapAngle = 90;
+                    
+                    SpawnEndcap(endcapPos, endcapAngle);
+                    break;
+                }
+            
+            }
+        }
+    }
+
+    GameObject[] GetEmptyAttachPoints()
+    {
+        return GameObject.FindGameObjectsWithTag("AttachPoint");
+    }
+
+    void SpawnEndcapsOnEmptyPoints(GameObject[] points)
+    {
+        
+        Vector3 endcapPos = Vector3.zero;
+        float endcapAngle = 0;
+        
+        for(int i = 0; i < points.Length; i++)
+        {
+            Debug.Log(points[i].name);
+            switch(points[i].name)
+            {
+                case ("U"):
+                {
+                    endcapPos = points[i].transform.position + Vector3.forward * room_size;
+                    endcapAngle = 0;
+                    SpawnEndcap(endcapPos, endcapAngle);
+                    break;
+                }
+                case ("D"):
+                {
+                    endcapPos =  points[i].transform.position + Vector3.back * room_size;
+                    endcapAngle = 180;
+                    SpawnEndcap(endcapPos, endcapAngle);
+                    break;
+                }
+                case ("L"):
+                {
+                    endcapPos =  points[i].transform.position + Vector3.left * room_size;
+                    endcapAngle = -90;
+                    SpawnEndcap(endcapPos, endcapAngle);
+                    break;
+                }
+                case ("R"):
+                {
+                    endcapPos =  points[i].transform.position + Vector3.right * room_size;
                     endcapAngle = 90;
                     
                     SpawnEndcap(endcapPos, endcapAngle);

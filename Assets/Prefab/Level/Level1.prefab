@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 2955322385034608520}
   m_Layer: 0
   m_Name: L
-  m_TagString: Untagged
+  m_TagString: AttachPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 2955322385231990084}
   m_Layer: 0
   m_Name: D
-  m_TagString: Untagged
+  m_TagString: AttachPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 2955322385630763964}
   m_Layer: 0
   m_Name: R
-  m_TagString: Untagged
+  m_TagString: AttachPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 2955322386145165973}
   m_Layer: 0
   m_Name: U
-  m_TagString: Untagged
+  m_TagString: AttachPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
