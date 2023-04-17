@@ -93,7 +93,7 @@ public class LevelManager : MonoBehaviour
                 currentLevelBranch = Instantiate(nextRoom, roomSpawnOffset + roomSpawn.gameObject.transform.position, Quaternion.identity).GetComponent<Level>();
             }
 
-            //SpawnEndcaps(lastLevelBranch);
+            SpawnEndcaps(lastLevelBranch);
 
             
             
@@ -108,58 +108,53 @@ public class LevelManager : MonoBehaviour
         
         for(int i = 0; i < level.AttachPoints.Length; i++)
         {
+            Debug.Log(level.AttachPoints[i].name);
             switch(level.AttachPoints[i].name)
             {
                 case ("U"):
                 {
-                    endcapPos = level.gameObject.transform.position + Vector3.forward * room_size;
+                    endcapPos = level.gameObject.transform.position + Vector3.forward * room_size * 1.5f;
                     endcapAngle = 0;
                     SpawnEndcap(endcapPos, endcapAngle);
                     break;
                 }
                 case ("D"):
                 {
-                    endcapPos = level.gameObject.transform.position + Vector3.back * room_size;
+                    endcapPos = level.gameObject.transform.position + Vector3.back * room_size * 1.5f;
                     endcapAngle = 180;
                     SpawnEndcap(endcapPos, endcapAngle);
                     break;
                 }
                 case ("L"):
                 {
-                    endcapPos = level.gameObject.transform.position + Vector3.left * room_size;
+                    endcapPos = level.gameObject.transform.position + Vector3.left * room_size * 1.5f;
                     endcapAngle = -90;
                     SpawnEndcap(endcapPos, endcapAngle);
                     break;
                 }
                 case ("R"):
                 {
-                    endcapPos = level.gameObject.transform.position + Vector3.right * room_size;
+                    endcapPos = level.gameObject.transform.position + Vector3.right * room_size * 1.5f;
                     endcapAngle = 90;
                     
                     SpawnEndcap(endcapPos, endcapAngle);
                     break;
                 }
-                
+            
             }
         }
-
-        if((endcapPos == Vector3.zero) && (Physics.BoxCast(endcapPos + Vector3.up * 10, Vector3.one, Vector3.down)))
-        {
-
-        } else 
-        {
-            
-        }
-        
-
-
     }
 
     void SpawnEndcap(Vector3 pos, float endcapAngle)
     {
-        if(!(Physics.BoxCast(pos + Vector3.down * 5, Vector3.one, Vector3.up)))
+        Debug.Log("spawning endcap");
+       
+        if(!(Physics.BoxCast(pos + Vector3.down, new Vector3(0.1f, 0.1f, 0.1f), Vector3.up)))
         {
             Instantiate(endCap, pos, Quaternion.AngleAxis(endcapAngle, Vector3.up));
+        } else 
+        {
+            Debug.Log("spawning endcap failed");
         }
     }
 
