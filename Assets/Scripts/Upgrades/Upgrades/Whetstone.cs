@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LegDay : Upgrade
+public class Whetstone : Upgrade
 {
 
-    [Header("LegDay Config")]
-    public float speedMod = 1.1f;
+    [Header("Upgrade Config")]
+    public float dmgMod = 1.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,6 @@ public class LegDay : Upgrade
     public override void Apply()
     {
         base.ApplyUpgrade(this);
-        GameManager.instance.playerInstance.movementSpeedMod = speedMod;
+        StatArray.instance.damage.SetValue(StatArray.instance.damage.GetValue() *  dmgMod);
     }
 }

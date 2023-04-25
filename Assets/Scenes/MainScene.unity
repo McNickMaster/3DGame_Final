@@ -555,6 +555,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1345384832}
+  - {fileID: 1181167515}
   m_Father: {fileID: 1874647557}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1346,6 +1347,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121562499}
   m_CullTransparentMesh: 1
+--- !u!1 &1181167514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1181167515}
+  - component: {fileID: 1181167516}
+  m_Layer: 0
+  m_Name: Upgrade_Whetstone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1181167515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181167514}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 320710814}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1181167516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181167514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee9f201a0e160d4a80905cefb4b267e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade_name: Whetstone
+  upgrade_desc: Increases the Mole's damage
+  dmgMod: 1.5
 --- !u!1 &1223003677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,6 +2041,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -66.35069
       objectReference: {fileID: 0}
+    - target: {fileID: 3281265215915423041, guid: d635d885a79d94b4c93343643dec0b04, type: 3}
+      propertyPath: m_Range
+      value: 12.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281265215915423041, guid: d635d885a79d94b4c93343643dec0b04, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3820755
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281265215915423041, guid: d635d885a79d94b4c93343643dec0b04, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8343867
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281265215915423041, guid: d635d885a79d94b4c93343643dec0b04, type: 3}
+      propertyPath: m_Intensity
+      value: 2.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281265215915423041, guid: d635d885a79d94b4c93343643dec0b04, type: 3}
+      propertyPath: m_SpotAngle
+      value: 84.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3501698205359144359, guid: d635d885a79d94b4c93343643dec0b04, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 17.902916
@@ -2633,8 +2701,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleUpgrades:
   - {fileID: 1345384831}
+  - {fileID: 1181167516}
   - {fileID: 1345384831}
-  - {fileID: 1345384831}
+  - {fileID: 1181167516}
   uiItem1: {fileID: 1239697448}
   uiItem2: {fileID: 875104803}
   uiItem3: {fileID: 1836194061}

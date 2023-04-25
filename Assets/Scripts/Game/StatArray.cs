@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class StatArray : MonoBehaviour
 {
-    public int totalHealth = 100;
-    public int currentHealth { get; private set; }
+    public static StatArray instance;
+    public float totalHealth = 100;
+    public float currentHealth { get; private set; }
 
     public Stat damage;
     public Stat defence;
 
     void Awake ()
     {
+        instance = this;
         currentHealth = totalHealth;
     }
 
@@ -21,10 +23,10 @@ public class StatArray : MonoBehaviour
     }
 
 
-    public void TakeDamage (int damage)
+    public void TakeDamage (float damage)
     {
         damage -= defence.GetValue();
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
+        damage = Mathf.Clamp(damage, 0, float.MaxValue);
 
         currentHealth -= damage;
 
