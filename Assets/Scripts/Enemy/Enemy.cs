@@ -15,4 +15,21 @@ public class Enemy : MonoBehaviour
     {
         
     }
+
+    void Hurt(GameObject gameObject)
+    {
+        //get damage script 
+        //deal damage based on its damage
+    }
+
+
+    void OnCollisionEnter(Collision other)
+    {
+        string objecttag = other.gameObject.tag;
+
+        if(objecttag.Equals("Damaging"))
+        {
+            Hurt(other.gameObject);
+        }
+    }
 }
