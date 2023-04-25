@@ -5,9 +5,11 @@ using UnityEngine;
 public class CharacterCombat : MonoBehaviour
 {
     public GameObject Wand;
+    public Animator anim;
     public bool CanAttack = true;
     public float AttackCooldown = 1.0f;
     public bool IsAttacking = false;
+
 
     void Update()
     {
@@ -20,12 +22,16 @@ public class CharacterCombat : MonoBehaviour
         }
     }
 
+    //Attack Properties
     public void WandAttack()
     {
         IsAttacking = true;
         CanAttack = false;
+        anim.SetBool("attacking", true);
         StartCoroutine(ResetAttackCooldown());
     }
+
+    //Attack Cooldown
     IEnumerator ResetAttackCooldown()
     {
         StartCoroutine(ResetAttackBool());
@@ -37,5 +43,6 @@ public class CharacterCombat : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         IsAttacking = false;
+        anim.SetBool("attacking", false);
     }
 }
