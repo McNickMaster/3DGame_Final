@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class CharacterCombat : MonoBehaviour
 {
+    public static CharacterCombat instance;
     public GameObject Wand;
     public Animator anim;
     public bool CanAttack = true;
     public float AttackCooldown = 1.0f;
     public bool IsAttacking = false;
 
-
+    void Awake()
+    {
+        instance = this;
+    }
+    
     void Update()
     {
         if (Input.GetMouseButtonDown(0))

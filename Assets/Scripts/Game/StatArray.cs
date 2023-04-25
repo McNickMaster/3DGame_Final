@@ -5,7 +5,7 @@ using UnityEngine;
 public class StatArray : MonoBehaviour
 {
     public static StatArray instance;
-    public float totalHealth = 100;
+    public Stat totalHealth;
     public float currentHealth { get; private set; }
 
     public Stat damage;
@@ -14,7 +14,8 @@ public class StatArray : MonoBehaviour
     void Awake ()
     {
         instance = this;
-        currentHealth = totalHealth;
+        totalHealth.SetValue(100);
+        currentHealth = totalHealth.GetValue();
     }
 
     void Update()

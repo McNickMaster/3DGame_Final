@@ -11,7 +11,7 @@ public class HitDetect : MonoBehaviour
     {
         if (other.tag == "Enemy" && cc.IsAttacking)
         {
-            Debug.Log(other.name);
+            Debug.Log("player hit " + other.name);
         }
     }
 }

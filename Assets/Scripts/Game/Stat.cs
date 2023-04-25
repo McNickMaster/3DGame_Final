@@ -18,4 +18,9 @@ public class Stat
         baseValue = newValue;
     }
 
+    public void ModifyValue(float multiplier)
+    {
+        baseValue *= multiplier;
+    }
+
 }

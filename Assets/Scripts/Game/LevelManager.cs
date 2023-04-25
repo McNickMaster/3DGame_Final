@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour
     public int room_amount = 5;
     public float room_size = 15;
 
+    public GameObject door;
+
 
     void Awake()
     {
@@ -90,7 +92,7 @@ public class LevelManager : MonoBehaviour
             if(Physics.BoxCast(roomSpawnOffset + roomSpawn.gameObject.transform.position + Vector3.up * 5, Vector3.one, Vector3.down))
             {
                 i--;
-                Debug.Log("something collided");
+//                Debug.Log("something collided");
             } else
             {
                 
@@ -106,7 +108,14 @@ public class LevelManager : MonoBehaviour
 
         }
 
+        SpawnDoor();
+
         SpawnEndcapsOnEmptyPoints(GetEmptyAttachPoints());
+    }
+
+    void SpawnDoor()
+    {
+        Instantiate(door, currentLevelBranch.transform.position, Quaternion.identity);
     }
 
     void SpawnEndcaps(Level level)
@@ -166,7 +175,7 @@ public class LevelManager : MonoBehaviour
         
         for(int i = 0; i < points.Length; i++)
         {
-            Debug.Log(points[i].name);
+            //Debug.Log(points[i].name);
             switch(points[i].name)
             {
                 case ("U"):
@@ -205,14 +214,14 @@ public class LevelManager : MonoBehaviour
 
     void SpawnEndcap(Vector3 pos, float endcapAngle)
     {
-        Debug.Log("spawning endcap");
+        //Debug.Log("spawning endcap");
        
         if(!(Physics.BoxCast(pos + Vector3.down, new Vector3(0.1f, 0.1f, 0.1f), Vector3.up)))
         {
             Instantiate(endCap, pos, Quaternion.AngleAxis(endcapAngle, Vector3.up));
         } else 
         {
-            Debug.Log("spawning endcap failed");
+            //Debug.Log("spawning endcap failed");
         }
     }
 

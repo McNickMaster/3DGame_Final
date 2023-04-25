@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AttachPoint
   - Damaging
+  - Enemy
   layers:
   - Default
   - TransparentFX

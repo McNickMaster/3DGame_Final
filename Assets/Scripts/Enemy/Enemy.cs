@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PointToPlayer();
     }
 
     void Hurt(GameObject gameObject)
@@ -31,5 +31,19 @@ public class Enemy : MonoBehaviour
         {
             Hurt(other.gameObject);
         }
+    }
+
+
+    private void PointToPlayer()
+    {
+
+        Vector3 pos = PlayerMovement.instance.transform.position;
+        Vector3 difference =  pos - transform.position;
+
+        float bodyAngle = -Mathf.Rad2Deg * Mathf.Atan2(difference.z, difference.x);
+
+        transform.rotation = Quaternion.AngleAxis(bodyAngle, Vector3.up);
+        
+
     }
 }
