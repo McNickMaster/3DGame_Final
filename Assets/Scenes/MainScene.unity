@@ -2896,11 +2896,17 @@ MonoBehaviour:
   - {fileID: 151672401892004588, guid: 5217d11fad28c17469593a640ef0d254, type: 3}
   - {fileID: 151672401892004588, guid: 2d98f9a4fa86d4841b90f2d1dc475d4c, type: 3}
   - {fileID: 151672401892004588, guid: b36f329167565c74994075724c395acf, type: 3}
+  - {fileID: 151672401892004588, guid: 91a93de6a9c57f946aefe0b47652a451, type: 3}
+  - {fileID: 151672401892004588, guid: b8ff54350765c7142b5631ce8c4c7b90, type: 3}
+  - {fileID: 151672401892004588, guid: 71a8dcf85110b434ead0807de8ae0b7f, type: 3}
+  - {fileID: 151672401892004588, guid: deaf0728dfacdce4488f7dc9fe91d8cf, type: 3}
+  - {fileID: 151672401892004588, guid: 3bc614fd7f5cb0944a2222fe1c8acf7c, type: 3}
+  - {fileID: 151672401892004588, guid: d8007c670bf49c541bee86de7fa38b13, type: 3}
   stemLevel: {fileID: 2955322386284852788, guid: 260c664b0a205974983a0df533525fbb, type: 3}
   endCap: {fileID: 2955322386284852788, guid: 274b3aa207d375c419cdd1d41b447f5e, type: 3}
   currentLevelBranch: {fileID: 0}
   lastLevelBranch: {fileID: 0}
-  room_amount: 5
+  room_amount: 10
   room_size: 15
   door: {fileID: 275471400888495580, guid: b2cf731e9cba28e4b84e89bf6a0c7b4b, type: 3}
 --- !u!114 &1874647559
