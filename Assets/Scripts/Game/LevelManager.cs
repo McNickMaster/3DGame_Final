@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-
+    public static LevelManager instance;
     public List<Level> possibleLevels;
     public Level stemLevel;
     public Level endCap;
@@ -20,13 +20,14 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
+        instance = this;
         currentLevelBranch = stemLevel;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        GenerateMap();
+        
     }
 
     // Update is called once per frame
@@ -35,10 +36,10 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    void GenerateMap()
+    public void GenerateMap()
     {
         Transform roomSpawn;
-        Level nextRoom;
+        Level nextRoom = null;
 
         string lastDir = "D";
 
@@ -58,16 +59,28 @@ public class LevelManager : MonoBehaviour
 
             lastDir = roomBranchDir;
 
+
+            //change each level name to match the attachpoints. will remove the neeed to have a loop within the loop, and possible fix the crash problem
+            
+            /*
             int c = 0;
             do
             {
                 nextRoom = possibleLevels[Random.Range(0, possibleLevels.Count)];
-                c++;
-
-                
+                c++;   
             }
-            while((!ListContains(nextRoom.AttachPoints, roomBranchDir)) && c < 100);
+            while((!RoomNameHasPoint(nextRoom.name, roomBranchDir)) && c < possibleLevels.Count);
+            */
 
+            for(int j = 0; j < possibleLevels.Count; j++)
+            {
+                nextRoom = possibleLevels[Random.Range(0, possibleLevels.Count)];
+                if(RoomNameHasPoint(nextRoom.name, roomBranchDir))
+                {
+                    break;
+                }
+
+            }
             
 
             Vector3 roomSpawnOffset = Vector3.zero;
@@ -98,7 +111,7 @@ public class LevelManager : MonoBehaviour
                 
                 lastLevelBranch = currentLevelBranch;
                 currentLevelBranch = Instantiate(nextRoom, roomSpawnOffset + roomSpawn.gameObject.transform.position, Quaternion.identity).GetComponent<Level>();
-                Destroy(roomSpawn.gameObject);
+//                Destroy(roomSpawn.gameObject);
             }
 
             //SpawnEndcaps(lastLevelBranch);
@@ -254,6 +267,36 @@ public class LevelManager : MonoBehaviour
             {
                 return true;
             }
+        }
+
+        return false;
+    }
+
+    bool RoomNameHasPoint(string name, string s)
+    {
+        string switched_s = "";
+
+        if(s == "U")
+        {
+            switched_s = "D";
+        }
+        if(s == "D")
+        {
+            switched_s = "U";
+        }
+        if(s == "R")
+        {
+            switched_s = "L";
+        }
+        if(s == "L")
+        {
+            switched_s = "R";
+        }
+
+       
+        if (name.ToLower().Contains(switched_s.ToLower()))
+        {
+            return true;
         }
 
         return false;

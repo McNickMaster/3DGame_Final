@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
                 {
                     
                     Debug.Log("Game starting...");
+
+                    LevelManager.instance.GenerateMap();
                     
                     gameState = GameState.Running;
                     
