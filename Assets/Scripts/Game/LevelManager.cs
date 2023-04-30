@@ -6,11 +6,20 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
     public List<Level> possibleLevels;
+
+    public List<Level> L_levels;
+    public List<Level> R_levels;
+    public List<Level> U_levels;
+    public List<Level> D_levels;
+
+
     public Level stemLevel;
     public Level endCap;
 
     public Level currentLevelBranch;
     public Level lastLevelBranch;
+
+    public List<Vector3Int> usedPositions;
 
     public int room_amount = 5;
     public float room_size = 15;
@@ -71,7 +80,7 @@ public class LevelManager : MonoBehaviour
             }
             while((!RoomNameHasPoint(nextRoom.name, roomBranchDir)) && c < possibleLevels.Count);
             */
-
+            /*
             for(int j = 0; j < possibleLevels.Count; j++)
             {
                 nextRoom = possibleLevels[Random.Range(0, possibleLevels.Count)];
@@ -81,6 +90,36 @@ public class LevelManager : MonoBehaviour
                 }
 
             }
+            */
+
+            switch(roomBranchDir)
+            {
+                case ("U"):
+                {
+                    nextRoom = D_levels[Random.Range(0, D_levels.Count)];
+                    break;
+                }
+                case ("D"):
+                {
+                    nextRoom = U_levels[Random.Range(0, U_levels.Count)];
+                    break;
+                }
+                case ("L"):
+                {
+                    nextRoom = R_levels[Random.Range(0, R_levels.Count)];
+                    break;
+                }
+                case ("R"):
+                {
+                    nextRoom = L_levels[Random.Range(0, L_levels.Count)];
+                    break;
+                }
+
+            }
+
+            
+
+
             
 
             Vector3 roomSpawnOffset = Vector3.zero;
@@ -102,9 +141,12 @@ public class LevelManager : MonoBehaviour
                 roomSpawnOffset += Vector3.right * room_size;
             }
 
-            if(Physics.BoxCast(roomSpawnOffset + roomSpawn.gameObject.transform.position + Vector3.up * 5, Vector3.one, Vector3.down))
+/*
+            int c = 0;
+            if(Physics.BoxCast(roomSpawnOffset + roomSpawn.gameObject.transform.position + Vector3.up * 5, Vector3.one, Vector3.down) && c < room_amount * 2)
             {
                 i--;
+                c++;
 //                Debug.Log("something collided");
             } else
             {
@@ -112,6 +154,20 @@ public class LevelManager : MonoBehaviour
                 lastLevelBranch = currentLevelBranch;
                 currentLevelBranch = Instantiate(nextRoom, roomSpawnOffset + roomSpawn.gameObject.transform.position, Quaternion.identity).GetComponent<Level>();
 //                Destroy(roomSpawn.gameObject);
+            }
+            */
+
+            Vector3 pos = (roomSpawnOffset + roomSpawn.gameObject.transform.position);
+            Vector3Int posInt = new Vector3Int((int)pos.x, (int)pos.y, (int)pos.z);
+            if(usedPositions.Contains(posInt))
+            {
+                
+            } else 
+            {
+                
+                lastLevelBranch = currentLevelBranch;
+                currentLevelBranch = Instantiate(nextRoom, pos, Quaternion.identity).GetComponent<Level>();
+                usedPositions.Add(posInt);
             }
 
             //SpawnEndcaps(lastLevelBranch);
@@ -301,6 +357,7 @@ public class LevelManager : MonoBehaviour
 
         return false;
     }
+
 
 
 }
