@@ -1317,6 +1317,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6652725513331149018, guid: 4718b6d27225efb4aaa57c2db8969177, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a0675b22aaacfa24695d032c277375ae, type: 2}
+    - target: {fileID: -4157524182732408741, guid: 4718b6d27225efb4aaa57c2db8969177, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a0675b22aaacfa24695d032c277375ae, type: 2}
     - target: {fileID: 919132149155446097, guid: 4718b6d27225efb4aaa57c2db8969177, type: 3}
       propertyPath: m_Name
       value: Beetle
@@ -2918,6 +2926,8 @@ MonoBehaviour:
   endCap: {fileID: 2955322386284852788, guid: 274b3aa207d375c419cdd1d41b447f5e, type: 3}
   currentLevelBranch: {fileID: 0}
   lastLevelBranch: {fileID: 0}
+  usedPositions:
+  - {x: 0, y: 0, z: 0}
   room_amount: 8
   room_size: 15
   door: {fileID: 275471400888495580, guid: b2cf731e9cba28e4b84e89bf6a0c7b4b, type: 3}

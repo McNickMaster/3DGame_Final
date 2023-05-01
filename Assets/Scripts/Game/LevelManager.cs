@@ -31,6 +31,8 @@ public class LevelManager : MonoBehaviour
     {
         instance = this;
         currentLevelBranch = stemLevel;
+
+        usedPositions.Add(new Vector3Int((int)stemLevel.transform.position.x, (int)stemLevel.transform.position.y, (int)stemLevel.transform.position.z));
     }
 
     // Start is called before the first frame update
