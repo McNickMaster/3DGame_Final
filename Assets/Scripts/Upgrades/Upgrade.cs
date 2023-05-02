@@ -9,6 +9,9 @@ public abstract class Upgrade : MonoBehaviour
     public string upgrade_desc;
 
 
+   
+
+
     public abstract void Apply();
     public void ApplyUpgrade(Upgrade upgrade)
     {

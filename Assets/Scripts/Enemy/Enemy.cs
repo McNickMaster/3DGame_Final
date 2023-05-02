@@ -22,6 +22,11 @@ public class Enemy : MonoBehaviour
         //deal damage based on its damage
     }
 
+    public void TakeDamage(float damage)
+    {
+        //health -= damage
+    }
+
 
     void OnCollisionEnter(Collision other)
     {

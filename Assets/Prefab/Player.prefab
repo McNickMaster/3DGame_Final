@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3457859531310021246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 751829012408025191}
+  m_Layer: 6
+  m_Name: Firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &751829012408025191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3457859531310021246}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.9689999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1264633985851721054}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3481718634794734372
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,10 +172,10 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95279133, b: 0.6367924, a: 1}
+  m_Color: {r: 0.6792453, g: 0.5966311, b: 0.36845854, a: 1}
   m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
+  m_Range: 20.74
+  m_SpotAngle: 84.3
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -298,6 +329,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2641847422157395592}
+  - component: {fileID: 110177564}
+  - component: {fileID: 110177562}
   m_Layer: 6
   m_Name: Wand
   m_TagString: Untagged
@@ -322,6 +355,32 @@ Transform:
   m_Father: {fileID: 5625125634588246314}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 16.759, y: 0, z: 0}
+--- !u!65 &110177564
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5767206647640390330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.39333487, y: 1.6340264, z: 0.9041995}
+  m_Center: {x: -0.010098219, y: 0.18418245, z: 0.2413954}
+--- !u!114 &110177562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5767206647640390330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1edd8960da73ac3408f9ce2485b8c78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cc: {fileID: 1983727112}
 --- !u!1 &6114635759717929725
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +540,9 @@ GameObject:
   - component: {fileID: 6114635761135825277}
   - component: {fileID: 6114635761135825276}
   - component: {fileID: 6114635761135825279}
+  - component: {fileID: 1983727106}
+  - component: {fileID: 1983727109}
+  - component: {fileID: 1983727112}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -552,6 +614,65 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1983727106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6114635761135825278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58de55ee59317094785f03774eeb9436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHealth:
+    baseValue: 0
+  damage:
+    baseValue: 0
+  defence:
+    baseValue: 0
+--- !u!114 &1983727109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6114635761135825278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962675798037a31449bac1bd69a42291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerModel: {fileID: 6114635760229601295}
+  orientation: {fileID: 1264633985851721054}
+  animator: {fileID: 1090881645}
+  bob_length: 3
+  bob_intensity: 0.03
+  sway_bounds: 3
+  sway_length: 0.8
+  sway_shift_intensity: 0.1
+--- !u!114 &1983727112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6114635761135825278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51709b47e97bb984588278697932f6e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Wand: {fileID: 5767206647640390330}
+  firepoint: {fileID: 751829012408025191}
+  anim: {fileID: 1090881645}
+  CanAttack: 1
+  CanCast: 1
+  AttackCooldown: 1
+  IsAttacking: 0
+  IsCasting: 0
+  moleSpell: {fileID: 0}
 --- !u!1 &6916173447395484523
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,6 +703,7 @@ Transform:
   m_Children:
   - {fileID: 1005450691677222297}
   - {fileID: 799792131428387157}
+  - {fileID: 751829012408025191}
   m_Father: {fileID: 6114635760229601292}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -675,8 +797,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 3, z: 1.79}
-  m_Center: {x: 0, y: 0, z: 1.79}
+  m_Size: {x: 3, y: 3, z: 2.7131677}
+  m_Center: {x: 0, y: 0, z: 2.2515838}
 --- !u!1001 &756232478794584690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -753,6 +875,26 @@ CapsuleCollider:
   m_Height: 2.9375217
   m_Direction: 1
   m_Center: {x: 0, y: 1.32, z: 0}
+--- !u!95 &1090881645
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486323610171420451}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d553d5ab0f3f70b45bb34db2d8e963e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1005450691677222297 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6a4bac5f1cb1a0441bb953918f22ee4b, type: 3}
