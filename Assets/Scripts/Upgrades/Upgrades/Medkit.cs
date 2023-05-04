@@ -22,7 +22,6 @@ public class Medkit : Upgrade
 
     public override void Apply()
     {
-        base.ApplyUpgrade(this);
-        StatArray.instance.totalHealth.ModifyValue(maxHealthMod);
+   
     }
 }

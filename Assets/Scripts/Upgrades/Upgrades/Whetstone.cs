@@ -22,7 +22,6 @@ public class Whetstone : Upgrade
 
     public override void Apply()
     {
-        base.ApplyUpgrade(this);
-        StatArray.instance.damage.SetValue(StatArray.instance.damage.GetValue() *  dmgMod);
+      
     }
 }

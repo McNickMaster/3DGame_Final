@@ -11,6 +11,7 @@ public class CharacterCombat : MonoBehaviour
     public bool CanAttack = true, CanCast = true;
     public float AttackCooldown = 1.0f;
     public bool IsAttacking = false, IsCasting = false;
+    public StatArray atm;
 
     public Spell moleSpell;
 
@@ -43,6 +44,7 @@ public class CharacterCombat : MonoBehaviour
         }
     }
 
+   
     //Attack Properties
     public void WandAttack()
     {
@@ -50,6 +52,14 @@ public class CharacterCombat : MonoBehaviour
         CanAttack = false;
         anim.SetBool("attacking", true);
         StartCoroutine(ResetAttackCooldown());
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<StatArray>().TakeDamage(atm.damage);
+        }
     }
 
     public void CastSpell()
