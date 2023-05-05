@@ -6,7 +6,7 @@ public class Whetstone : Upgrade
 {
 
     [Header("Upgrade Config")]
-    public float dmgMod = 1.1f;
+    public float dmgMod = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,7 @@ public class Whetstone : Upgrade
 
     public override void Apply()
     {
-      
+        base.ApplyUpgrade(this);
+        StatArray.instance.damage = (int)(StatArray.instance.damage * dmgMod);
     }
 }

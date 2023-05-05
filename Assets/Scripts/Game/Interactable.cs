@@ -10,11 +10,11 @@ public abstract class Interactable : MonoBehaviour
 
     public void Select()
     {
-        GetComponentInChildren<MeshRenderer>().material.color = selectedColor;
+        GetComponentInChildren<SkinnedMeshRenderer>().material.color = selectedColor;
     }
 
     public void DeSelect()
     {
-        GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+        GetComponentInChildren<SkinnedMeshRenderer>().material.color = Color.white;
     }
 }

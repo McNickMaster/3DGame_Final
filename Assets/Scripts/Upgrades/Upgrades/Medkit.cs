@@ -6,7 +6,7 @@ public class Medkit : Upgrade
 {
 
     [Header("Upgrade Config")]
-    public float maxHealthMod = 1.1f;
+    public float maxHealthMod = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,7 @@ public class Medkit : Upgrade
 
     public override void Apply()
     {
-   
+        base.ApplyUpgrade(this);
+        StatArray.instance.health = (int)(StatArray.instance.health * maxHealthMod);
     }
 }

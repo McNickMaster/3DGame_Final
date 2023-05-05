@@ -25,6 +25,9 @@ public class CharacterCombat : MonoBehaviour
         if(moleSpell == null)
         {
             CanCast = false;
+        } else 
+        {
+            CanCast = true;
         }
         
         if (Input.GetMouseButtonDown(0))

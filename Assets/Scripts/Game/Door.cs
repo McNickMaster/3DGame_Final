@@ -22,7 +22,7 @@ public class Door : Interactable
 
     public override void Interact()
     {
-        
+        GameManager.instance.EndOfLevelReached();
     }
 
     public void StopInteracting()

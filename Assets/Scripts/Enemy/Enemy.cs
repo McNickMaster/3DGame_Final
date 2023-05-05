@@ -36,6 +36,8 @@ public class Enemy : MonoBehaviour
         {
             Hurt(other.gameObject);
         }
+
+        Debug.Log(objecttag);
     }
 
 
@@ -51,4 +53,6 @@ public class Enemy : MonoBehaviour
         
 
     }
+    
+    
 }

@@ -57,14 +57,17 @@ public class UpgradeSystem : MonoBehaviour
     public void Select_One()
     {
         one.Apply();
+        MrRat.instance.StopInteracting();
     }
     public void Select_Two()
     {
         two.Apply();
+        MrRat.instance.StopInteracting();
     }
     public void Select_Three()
     {
         three.Apply();
+        MrRat.instance.StopInteracting();
     }
 
 

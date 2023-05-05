@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class StatArray : MonoBehaviour
 {
+    public static StatArray instance;
     public int damage;
     public int health;
 
-
+    private void Awake()
+    {
+        instance = this;
+    }
     public void TakeDamage(int amount)
     {
         health -= amount;

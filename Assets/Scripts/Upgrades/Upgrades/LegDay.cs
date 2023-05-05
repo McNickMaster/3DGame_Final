@@ -6,7 +6,7 @@ public class LegDay : Upgrade
 {
 
     [Header("LegDay Config")]
-    public float speedMod = 1.1f;
+    public float speedMod = 1.3f;
 
     // Start is called before the first frame update
     void Start()

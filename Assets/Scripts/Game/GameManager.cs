@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject playerObjInstance;
     public PlayerMovement playerInstance;
+
+    public GameObject upgradeUI;
+    public UpgradeSystem upgradeSystem;
+
+    public GameObject levelStem;
     private int currentLevelIndex = 0;
 
     [SerializeField]
@@ -43,7 +48,7 @@ public class GameManager : MonoBehaviour
                     
                     Debug.Log("Game starting...");
 
-                    LevelManager.instance.GenerateMap();
+                    GenerateFirstLevel();
                     
                     gameState = GameState.Running;
                     
@@ -76,6 +81,22 @@ public class GameManager : MonoBehaviour
                     break;
                 }
             }
+        }
+
+        private void GenerateFirstLevel()
+        {
+            LevelManager.instance.GenerateMap(Instantiate(levelStem, Vector3.zero, Quaternion.identity, null).transform);
+        }
+
+        private void GenerateNextLevel()
+        {
+            LevelManager.instance.DestroyCurrentLevel();
+            LevelManager.instance.GenerateMap(Instantiate(levelStem, Vector3.zero, Quaternion.identity, null).transform);
+        }
+
+        public void EndOfLevelReached()
+        {
+            GenerateNextLevel();
         }
 
         public void PlayerDied()

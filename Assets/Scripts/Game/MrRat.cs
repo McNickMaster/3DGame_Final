@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class MrRat : Interactable
 {
-    public UpgradeSystem upgradeSystem;
-    public GameObject upgradeUI;
+    public static MrRat instance;
+    private UpgradeSystem upgradeSystem;
+    private GameObject upgradeUI;
+
+    private bool upgradeTaken = false;
 
 
     void Awake()
     {
-        upgradeSystem.GenerateUpgrades();
+        instance = this;
+        upgradeUI = GameManager.instance.upgradeUI;
+        upgradeSystem = GameManager.instance.upgradeSystem;
     }
     // Start is called before the first frame update
     void Start()
@@ -26,9 +31,18 @@ public class MrRat : Interactable
 
     public override void Interact()
     {
-        upgradeUI.SetActive(true);
-        GameManager.instance.Pause();
-        GameManager.instance.StartUIMode();
+        if(upgradeTaken)
+        {
+
+        } else {
+            
+            upgradeSystem.GenerateUpgrades();
+            upgradeUI.SetActive(true);
+            GameManager.instance.Pause();
+            GameManager.instance.StartUIMode();
+
+            upgradeTaken = true;
+        }
     }
 
     public void StopInteracting()

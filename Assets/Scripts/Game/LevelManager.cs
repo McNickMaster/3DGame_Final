@@ -5,12 +5,16 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
+
+    public Transform levelParent;
     public List<Level> possibleLevels;
 
     public List<Level> L_levels;
     public List<Level> R_levels;
     public List<Level> U_levels;
     public List<Level> D_levels;
+
+    public Vector3 playerSpawn = new Vector3(0, 3, 0);
 
 
     public Level stemLevel;
@@ -30,9 +34,7 @@ public class LevelManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-        currentLevelBranch = stemLevel;
-
-        usedPositions.Add(new Vector3Int((int)stemLevel.transform.position.x, (int)stemLevel.transform.position.y, (int)stemLevel.transform.position.z));
+        
     }
 
     // Start is called before the first frame update
@@ -47,8 +49,22 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    public void GenerateMap()
+    public void DestroyCurrentLevel()
     {
+        Destroy(levelParent.gameObject);
+    }
+
+    public void GenerateMap(Transform parent)
+    {
+        levelParent = parent;
+        currentLevelBranch = stemLevel;
+
+        
+        PlayerMovement.instance.transform.position = stemLevel.spawnpoint.localPosition + Vector3.up * 2;
+
+        usedPositions.Add(new Vector3Int((int)stemLevel.transform.position.x, (int)stemLevel.transform.position.y, (int)stemLevel.transform.position.z));
+
+
         Transform roomSpawn;
         Level nextRoom = null;
 
@@ -168,7 +184,7 @@ public class LevelManager : MonoBehaviour
             {
                 
                 lastLevelBranch = currentLevelBranch;
-                currentLevelBranch = Instantiate(nextRoom, pos, Quaternion.identity).GetComponent<Level>();
+                currentLevelBranch = Instantiate(nextRoom, pos, Quaternion.identity, levelParent).GetComponent<Level>();
                 usedPositions.Add(posInt);
             }
 
@@ -182,11 +198,14 @@ public class LevelManager : MonoBehaviour
         SpawnDoor();
 
         SpawnEndcapsOnEmptyPoints(GetEmptyAttachPoints());
+
+        usedPositions.Clear();
+
     }
 
     void SpawnDoor()
     {
-        Instantiate(door, currentLevelBranch.transform.position, Quaternion.identity);
+        Instantiate(door, currentLevelBranch.transform.position, Quaternion.identity, levelParent);
     }
 
     void SpawnEndcaps(Level level)
@@ -283,17 +302,32 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void SpawnEndcap(Vector3 pos, float endcapAngle)
+    void SpawnEndcap_old(Vector3 pos, float endcapAngle)
     {
         //Debug.Log("spawning endcap");
        
         if(!(Physics.BoxCast(pos + Vector3.down, new Vector3(0.1f, 0.1f, 0.1f), Vector3.up)))
         {
-            Instantiate(endCap, pos, Quaternion.AngleAxis(endcapAngle, Vector3.up));
+            Instantiate(endCap, pos, Quaternion.AngleAxis(endcapAngle, Vector3.up), levelParent);
         } else 
         {
             //Debug.Log("spawning endcap failed");
         }
+    }
+
+    void SpawnEndcap(Vector3 pos, float endcapAngle)
+    {
+        
+        Vector3Int posInt = new Vector3Int((int)pos.x, (int)pos.y, (int)pos.z);
+            if(usedPositions.Contains(posInt))
+            {
+                
+            } else 
+            {
+                
+                Instantiate(endCap, pos, Quaternion.AngleAxis(endcapAngle, Vector3.up), levelParent).GetComponent<Level>();
+                usedPositions.Add(posInt);
+            }
     }
 
 
