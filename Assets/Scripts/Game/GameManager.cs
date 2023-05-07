@@ -16,7 +16,10 @@ public class GameManager : MonoBehaviour
     public UpgradeSystem upgradeSystem;
 
     public GameObject levelStem;
+
+    public GameObject finalLevel;
     private int currentLevelIndex = 0;
+    public int numberOfLevels = 3;
 
     [SerializeField]
     public GameState gameState = GameState.Ready;
@@ -90,8 +93,23 @@ public class GameManager : MonoBehaviour
 
         private void GenerateNextLevel()
         {
+            if(currentLevelIndex < numberOfLevels)
+            {
+                LevelManager.instance.DestroyCurrentLevel();
+                LevelManager.instance.GenerateMap(Instantiate(levelStem, Vector3.zero, Quaternion.identity, null).transform);
+
+                currentLevelIndex++;
+            } else{
+                SpawnLastLevel();
+            }
+        }
+
+        private void SpawnLastLevel()
+        {
             LevelManager.instance.DestroyCurrentLevel();
-            LevelManager.instance.GenerateMap(Instantiate(levelStem, Vector3.zero, Quaternion.identity, null).transform);
+            Level level = Instantiate(finalLevel, Vector3.zero, Quaternion.identity, null).GetComponent<Level>();
+
+            PlayerMovement.instance.transform.position = level.spawnpoint.localPosition + Vector3.up * 2;
         }
 
         public void EndOfLevelReached()
