@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class StatArray : MonoBehaviour
 {
-    public static StatArray instance;
-    public int damage;
-    public int health;
+
+    public float damage;
+    public float health;
+    public float maxHealth;
+
 
     private void Awake()
     {
-        instance = this;
+        health = maxHealth;
     }
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         health -= amount;
 
@@ -30,4 +32,10 @@ public class StatArray : MonoBehaviour
             atm.TakeDamage(damage);
         }
     }
+
+    public void HealToFull()
+    {
+        health = maxHealth;
+    }
+
 }

@@ -23,6 +23,6 @@ public class Medkit : Upgrade
     public override void Apply()
     {
         base.ApplyUpgrade(this);
-        StatArray.instance.health = (int)(StatArray.instance.health * maxHealthMod);
+        PlayerMovement.instance.stats.HealToFull();
     }
 }

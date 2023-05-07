@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform playerCam;
     public Transform orientation;
     
+    public StatArray stats;
     //Other
     public Rigidbody rb;
 

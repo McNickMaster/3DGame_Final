@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Whetstone : Upgrade
+public class BiggerSwings : Upgrade
 {
 
     [Header("Upgrade Config")]
@@ -23,6 +23,6 @@ public class Whetstone : Upgrade
     public override void Apply()
     {
         base.ApplyUpgrade(this);
-        StatArray.instance.damage = (int)(StatArray.instance.damage * dmgMod);
+        PlayerMovement.instance.stats.damage = (PlayerMovement.instance.stats.damage * dmgMod);
     }
 }
