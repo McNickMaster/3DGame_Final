@@ -7,6 +7,7 @@ TagManager:
   - AttachPoint
   - Damaging
   - Enemy
+  - Wand
   layers:
   - Default
   - TransparentFX

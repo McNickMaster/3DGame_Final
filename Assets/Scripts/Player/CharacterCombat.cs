@@ -57,11 +57,24 @@ public class CharacterCombat : MonoBehaviour
         StartCoroutine(ResetAttackCooldown());
     }
 
-    private void OnTriggerEnter(Collider other)
+    //turns weapon hitbox on and off
+    public void EnableWeaponCollider(bool isAttacking)
     {
-        if (other.CompareTag("Enemy"))
+        if(Wand != null)
         {
-            other.GetComponent<StatArray>().TakeDamage(atm.damage);
+            var col = Wand.GetComponent<Collider>();
+
+            if(col != null)
+            {
+                if(isAttacking == true)
+                {
+                    col.enabled = true;
+                }
+                else
+                {
+                    col.enabled = false;
+                }
+            }
         }
     }
 
