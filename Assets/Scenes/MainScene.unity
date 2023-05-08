@@ -2747,6 +2747,8 @@ MonoBehaviour:
   upgradeUI: {fileID: 450840103}
   upgradeSystem: {fileID: 1874647559}
   levelStem: {fileID: 3402518663493181241, guid: 39e455c96d3c77d4991b20bb98deb3a3, type: 3}
+  finalLevel: {fileID: 0}
+  numberOfLevels: 3
   gameState: 0
   currentLevel: {fileID: 0}
   currentUpgrades: []
