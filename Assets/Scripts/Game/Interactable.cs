@@ -12,10 +12,10 @@ public abstract class Interactable : MonoBehaviour
     {
         if(skinned)
         {
-            GetComponentInChildren<SkinnedMeshRenderer>().material.color = selectedColor;
+            SetAllMaterialsEmmisive(GetComponentsInChildren<SkinnedMeshRenderer>(), true);
         } else 
         {
-            GetComponentInChildren<MeshRenderer>().material.color = selectedColor;
+            SetAllMaterialsEmmisive(GetComponentsInChildren<MeshRenderer>(), true);
         }
     }
 
@@ -23,10 +23,31 @@ public abstract class Interactable : MonoBehaviour
     {
         if(skinned)
         {
-            GetComponentInChildren<SkinnedMeshRenderer>().material.color = Color.white;
+            SetAllMaterialsEmmisive(GetComponentsInChildren<SkinnedMeshRenderer>(), false);
         } else 
         {
-            GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+            SetAllMaterialsEmmisive(GetComponentsInChildren<MeshRenderer>(), false);
+        }
+    }
+
+
+    void SetAllMaterialsEmmisive(MeshRenderer[] renderers, bool emmisive)
+    {
+        Color color;
+        color = emmisive ? selectedColor : Color.black;
+        foreach(MeshRenderer rend in renderers)
+        {
+            rend.material.SetColor("_EmissionColor", color);
+        }
+    }
+
+    void SetAllMaterialsEmmisive(SkinnedMeshRenderer[] renderers, bool emmisive)
+    {
+        Color color;
+        color = emmisive ? selectedColor : Color.black;
+        foreach(SkinnedMeshRenderer rend in renderers)
+        {
+            rend.material.SetColor("_EmissionColor", color);
         }
     }
 }

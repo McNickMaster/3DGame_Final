@@ -1424,7 +1424,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48f8632de28f164b9567ee9345ffb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedColor: {r: 0, g: 0.049598217, b: 1, a: 0.65882355}
+  selectedColor: {r: 0.243276, g: 0.582, b: 0.243276, a: 0.65882355}
+  skinned: 1
 --- !u!65 &5658531204844107855
 BoxCollider:
   m_ObjectHideFlags: 0
