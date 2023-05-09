@@ -716,7 +716,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5767206647640390330, guid: d635d885a79d94b4c93343643dec0b04, type: 3}
   m_PrefabInstance: {fileID: 1595663701}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &496103491
+--- !u!114 &496103494
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -725,12 +725,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 496103487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d9890025a0f3a4484bb0dc1cc9327e, type: 3}
+  m_Script: {fileID: 11500000, guid: 93c3a08718f00c44a9ee05d2d45703db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  health: 0
-  maxHealth: 0
+  atm: {fileID: 1983727108}
 --- !u!1 &656707621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2539,6 +2537,18 @@ PrefabInstance:
     - target: {fileID: 6114635761135825278, guid: d635d885a79d94b4c93343643dec0b04, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404931858941899088, guid: d635d885a79d94b4c93343643dec0b04, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404931858941899088, guid: d635d885a79d94b4c93343643dec0b04, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404931858941899088, guid: d635d885a79d94b4c93343643dec0b04, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.03
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 110177562, guid: d635d885a79d94b4c93343643dec0b04, type: 3}
