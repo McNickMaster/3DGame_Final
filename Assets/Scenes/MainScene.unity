@@ -2841,6 +2841,14 @@ MonoBehaviour:
   - {fileID: 1181167516}
   - {fileID: 769140713}
   - {fileID: 54566700}
+  - {fileID: 1345384831}
+  - {fileID: 1181167516}
+  - {fileID: 769140713}
+  - {fileID: 54566700}
+  - {fileID: 1345384831}
+  - {fileID: 1181167516}
+  - {fileID: 769140713}
+  - {fileID: 54566700}
   uiItem1: {fileID: 1239697448}
   uiItem2: {fileID: 875104803}
   uiItem3: {fileID: 1836194061}
@@ -2875,6 +2883,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d9890025a0f3a4484bb0dc1cc9327e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 1
   health: 3
   maxHealth: 4
